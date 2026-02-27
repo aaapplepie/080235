@@ -1,0 +1,19 @@
+import { QueryClient } from '@tanstack/react-query'
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,   // 5분 캐시
+      gcTime:    10 * 60 * 1000,  // 10분 유지
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
+export const queryKeys = {
+  customers: ['customers'],
+  purchases: ['purchases'],
+  kpi:       ['kpi'],
+  revenue:   ['revenue'],
+}
